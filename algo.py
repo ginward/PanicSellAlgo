@@ -6,7 +6,6 @@ For simplicity purposes, this file assumes stock prices follows Brownian Motion,
 and we only trade SP500. 
 '''
 
-import matplotlib.pyplot as plt
 import numpy as np
 
 class TradeData:
