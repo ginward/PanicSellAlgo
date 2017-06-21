@@ -92,13 +92,13 @@ class Algorithm:
 		#evaluate the performance 
 		end_netA = self.accountA.portfolio["SP500"] + self.stockprices[len(self.stockprices)-1] + self.accountA.cash
 		return_net = (end_netA - self.begin_netA) / self.begin_netA
-		print "Return of panic selling after 30 trading days is " + str(return_net)
+		print "Return of panic selling strategy after 30 trading days is " + str(return_net)
 
 	#assumes an investor holds when the return drops below -2%
 	def hold_sell(self):
 		end_netB = self.accountB.portfolio["SP500"] + self.stockprices[len(self.stockprices)-1] + self.accountB.cash
 		return_net = (end_netB - self.begin_netB) / self.begin_netB
-		print "Return of hold after 30 trading days is " + str(return_net)
+		print "Return of hold strategy after 30 trading days is " + str(return_net)
 
 for x in range(0, 100):
 	print "\n"
