@@ -93,17 +93,37 @@ class Algorithm:
 		end_netA = self.accountA.portfolio["SP500"] + self.stockprices[len(self.stockprices)-1] + self.accountA.cash
 		return_net = (end_netA - self.begin_netA) / self.begin_netA
 		print "Return of panic selling strategy after 30 trading days is " + str(return_net)
+		return return_net
 
 	#assumes an investor holds when the return drops below -2%
 	def hold_sell(self):
 		end_netB = self.accountB.portfolio["SP500"] + self.stockprices[len(self.stockprices)-1] + self.accountB.cash
 		return_net = (end_netB - self.begin_netB) / self.begin_netB
 		print "Return of hold strategy after 30 trading days is " + str(return_net)
+		return return_net
+
+performance_a = []
+performance_b = []
+count_b_better_than_a = 0
 
 for x in range(0, 100):
 	print "\n"
 	print "Simulation "+ str(x) + " results:"
 	a = Algorithm()
-	a.panic_sell()
-	a.hold_sell()
+	return_a = a.panic_sell()
+	performance_a.append(return_a)
+	return_b = a.hold_sell()
+	performance_b.append(return_b)
 	print "\n"
+
+print "simulation finished \n"
+
+print "there are " + str(len(performance_a)) + " cases in total"
+
+for i, val in enumerate(performance_a):
+	if performance_b[i]>performance_a[i]:
+		count_b_better_than_a = count_b_better_than_a+1
+
+percentage = float(count_b_better_than_a)/len(performance_a) * 100
+
+print "In "+ str(percentage) + "% of 100 cases, hold strategy performs better than panic sell strategy \n\n"
