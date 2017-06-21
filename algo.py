@@ -14,7 +14,7 @@ class TradeData:
 		to simplify matters, assume that only SP500 is traded
 	'''
 	'''
-		Assuem that the stock price movement follows Brownion Motion
+		Assume that the stock price movement follows Brownion Motion
 	'''
 	def brownMotion(self, starting_price):
 		T = 1 #a month
