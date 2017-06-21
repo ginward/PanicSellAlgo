@@ -101,6 +101,10 @@ class Algorithm:
 		return_net = (end_netB - self.begin_netB) / self.begin_netB
 		print "Return of hold after 30 trading days is " + str(return_net)
 
-a = Algorithm()
-a.panic_sell()
-a.hold_sell()
+for x in range(0, 100):
+	print "\n"
+	print "Simulation "+ str(x) + " results:"
+	a = Algorithm()
+	a.panic_sell()
+	a.hold_sell()
+	print "\n"
